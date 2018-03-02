@@ -23,12 +23,12 @@ function preload() {
 
 //-- usage --//
 preload(
-	"hintergrund.png", 
-	"sc2_logo.png", 
-	"lol_logo.png", 
-	"r6_logo.png", 
-	"hots_logo.png", 
-	"csgo_logo.png", 
-	"pubg_logo.png", 
-	"ow_logo.png"
+	"bilder/hintergrund.png", 
+	"bilder/sc2_logo.png", 
+	"bilder/lol_logo.png", 
+	"bilder/r6_logo.png", 
+	"bilder/hots_logo.png", 
+	"bilder/csgo_logo.png", 
+	"bilder/pubg_logo.png", 
+	"bilder/ow_logo.png"
 )

@@ -32,7 +32,7 @@ function buttonStartErgebnisse () {
 	var ctx=c.getContext("2d");
 	
 	var hintergrund = new Image();
-	hintergrund.src = "hintergrund.png";	
+	hintergrund.src = "bilder/hintergrund.png";	
 	hintergrund.onload;
 	//***********************//
 	// HINTERGRUND     //
@@ -79,7 +79,7 @@ function buttonStartErgebnisse () {
 		//***********************//
 		var ergebnis = spiel[0];
 		var logo = new Image();
-		logo.src = ergebnis.spiel + "_logo.png";
+		logo.src = "bilder/" + ergebnis.spiel + "_logo.png";
 		logo.onload;
 		var logo_width = (logo_height / logo.height) * logo.width;
 		var logo_start = x1_balken/2 - logo_width/2;
