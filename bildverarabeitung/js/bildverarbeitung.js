@@ -107,7 +107,7 @@ function buttonStartBildverarbeitung () {
 function getLogoPfad(){
 	var art = document.getElementById("art").value;	
 	var farbe = document.getElementById("farbe").value;
-	return art + "_" + farbe + ".svg";
+	return "bilder/" + art + "_" + farbe + ".svg";
 }
 
 function getBalkenColor(){
