@@ -6,6 +6,7 @@
 		<script src="js/main.js"></script>
 		<script src="js/bildverarbeitung.js"></script>
 		<script src="js/spielergebnisse.js"></script>
+		<script src="js/stammtischbild.js"></script>
   </head>
   <body>
 		<h1>Wähle eine Verarbeitungsweise...</h1>
@@ -442,13 +443,10 @@
 						<h2>Bild und Einstellungen auswählen und auf Start klicken..</h2>
 						
 						<hr />
-						<input id="bild" type="file" name="file" />
+						<input id="bildStammtisch" type="file" name="file" />
 						<hr />
 						<button type="button" id="start" onclick="buttonStartStammtisch()">Start</button>
 						<p id="ausgabeStammtisch">Bitte wählen Sie ein Bild aus...</p>			  
-						<div style="float:left;">
-							<output id="vorschauStammtisch" />
-						</div>
 						<div style="float:left;">	  
 								<canvas id="canvasStammtisch" />
 						</div>
