@@ -104,6 +104,7 @@ function buttonStartErgebnisse () {
 			y_start = y_start + abstand;
 		}
 	}  
+	document.getElementById("ausgabeErgebnisse").innerHTML = "Erfolg! Jetzt nur noch<br/>Rechtsklick > Bild speichern unter...<br/> klicken.";
 }
 
 function getErgebnis(zahl){

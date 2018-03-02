@@ -17,7 +17,7 @@
 					<li><a href="#stammtischbild">Stammtischbild</a></li>
 				</ul>
 				<div class="tab-content">
-					
+
 					<!-- ############################################################################ -->
 					<!-- BILDVERARBEITUNG ##########################################################-->
 					<!-- ############################################################################ -->
@@ -78,7 +78,7 @@
 								<label>Balken:</label>
 								</td>
 								<td>
-								<input id="balken" type="checkbox">
+									<input id="balken" type="checkbox">
 								</td>
 							</tr>				
 							<tr>
@@ -88,7 +88,7 @@
 							</tr>
 							<tr>
 								<td colspan="2">
-								<input id="bild" type="file" name="file" multiple />
+									<input id="bild" type="file" name="file" />
 								</td>
 							</tr>
 							<tr>
@@ -98,7 +98,7 @@
 							</tr>
 							<tr>
 								<td colspan="2">
-								<button type="button" id="start" onclick="buttonStartBildverarbeitung()">Start</button>
+									<button type="button" id="start" onclick="buttonStartBildverarbeitung()">Start</button>
 								</td>
 							</tr>
 						</table>	 
@@ -440,6 +440,18 @@
 					<!-- ############################################################################ -->
 					<div id="stammtischbild" class="tab">
 						<h2>Bild und Einstellungen auswählen und auf Start klicken..</h2>
+						
+						<hr />
+						<input id="bild" type="file" name="file" />
+						<hr />
+						<button type="button" id="start" onclick="buttonStartStammtisch()">Start</button>
+						<p id="ausgabeStammtisch">Bitte wählen Sie ein Bild aus...</p>			  
+						<div style="float:left;">
+							<output id="vorschauStammtisch" />
+						</div>
+						<div style="float:left;">	  
+								<canvas id="canvasStammtisch" />
+						</div>
 					</div>
 
 				</div>
