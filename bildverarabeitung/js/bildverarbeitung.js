@@ -156,10 +156,5 @@ function dateiauswahl(evt) {
 			reader.readAsDataURL(f);
 			document.getElementById("ausgabe").innerHTML = "Bitte wählen Sie die Eigenschaften aus <br/>und drücken auf 'Start'";
 		}
-		}
 	}
-	
-window.onload=function(){
-	// Auf neue Auswahl reagieren und gegebenenfalls Funktion dateiauswahl neu aus
-	document.getElementById('bild').addEventListener('change', dateiauswahl, false);
 }
