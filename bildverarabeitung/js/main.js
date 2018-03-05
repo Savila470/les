@@ -36,4 +36,5 @@ preload(
 window.onload=function(){
 	// Auf neue Auswahl reagieren und gegebenenfalls Funktion dateiauswahl neu aus
 	document.getElementById('bild').addEventListener('change', dateiauswahl, false);
+	document.getElementById('bildStammtisch').addEventListener('change', dateiauswahlStammtisch, false);
 }
