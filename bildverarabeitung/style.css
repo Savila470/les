@@ -57,3 +57,11 @@ li.active a, li.active a:hover {
 .ergebnisLES{
 	text-align:right;
 }
+.slideInput{
+	width: 50%;
+    float: right;
+    text-align: right;
+}
+.slide{
+	width: 100%;
+}

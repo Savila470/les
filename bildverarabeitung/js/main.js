@@ -30,11 +30,14 @@ preload(
 	"bilder/hots_logo.png", 
 	"bilder/csgo_logo.png", 
 	"bilder/pubg_logo.png", 
-	"bilder/ow_logo.png"
+	"bilder/ow_logo.png",
+	"bilder/stuk_logo.png",
+	"bilder/logo_farbe.svg"
 )
 	
 window.onload=function(){
 	// Auf neue Auswahl reagieren und gegebenenfalls Funktion dateiauswahl neu aus
 	document.getElementById('bild').addEventListener('change', dateiauswahl, false);
 	document.getElementById('bildStammtisch').addEventListener('change', dateiauswahlStammtisch, false);
+	document.getElementById('dunkel').addEventListener('input', dunkelChange, false);
 }

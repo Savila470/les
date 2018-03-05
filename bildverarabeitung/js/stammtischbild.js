@@ -1,7 +1,44 @@
 function buttonStartStammtisch () {
-    var element = document.getElementById("bildStammtisch");	
-    var pfad = element.value;
-    var test = "test";
+    var bild_height = 1080;
+    var bild_width = 1920;
+    var dunkel = document.getElementById("dunkelWert").value;
+    dunkel = dunkel * 0.01;
+
+    var c=document.getElementById("canvasStammtisch");
+	var ctx=c.getContext("2d");
+	
+	//####################################################//
+	// Ab hier wird das Hintergrund-BILD gemalt ###########//
+	//####################################################//	
+	var bild = document.getElementById('vorschau_bild_stammtisch');
+	c.height = bild_height;
+	c.width = bild_width;
+    ctx.drawImage(bild, 0, 0, 1920, 1080);	 
+    ctx.globalAlpha = dunkel;
+    ctx.fillRect(0,0,bild_width,bild_height);
+    ctx.globalAlpha = 1;
+	
+	//####################################################//
+	// Ab hier wird das Stuk-LOGO gemalt #################//
+	//####################################################//
+    var stuk_logo = new Image();
+    stuk_logo.src = "bilder/stuk_logo.png";
+    stuk_logo.width = stuk_logo.width*0.8;
+    stuk_logo.height = stuk_logo.height*0.8;
+    ctx.drawImage(stuk_logo, 20, bild_height-stuk_logo.height-17, stuk_logo.width, stuk_logo.height);	 
+    
+	//####################################################//
+	// Ab hier wird das LES-LOGO gemalt ##################//
+	//####################################################//
+    var les_logo = new Image();
+    les_logo.src = "bilder/logo_farbe.svg";
+    ctx.drawImage(les_logo, 850, 180, les_logo.width*0.92, les_logo.height*0.92);
+
+	//####################################################//
+	// ERFOLG! ###########################################//
+	//####################################################//
+    bild.style.display = "none";
+	document.getElementById("ausgabeStammtisch").innerHTML = "Erfolg! Jetzt nur noch<br/>Rechtsklick > Bild speichern unter...<br/> klicken.";
 }
 
 function dateiauswahlStammtisch(evt) {
@@ -13,25 +50,29 @@ function dateiauswahlStammtisch(evt) {
         if (!f.type.match('image.*')) {
             document.getElementById("ausgabeStammtisch").innerHTML = "!! Sie haben keine Bild-Datei ausgewählt !!";
         } else {
-        var reader = new FileReader();
-        reader.onload = (function (theFile) {
-            return function (e) {
-                // erzeuge Thumbnails.
-                var vorschau = document.getElementById("vorschau_bild_stammtisch");
-                if(vorschau == null){
-                vorschau = document.createElement('img');
-                vorschau.id="vorschau_bild_stammtisch";
-                vorschau.className = 'vorschau';
-                }
-                vorschau.src = e.target.result;
-                vorschau.title = theFile.name;
-                document.getElementById('vorschauStammtisch')
-                    .insertBefore(vorschau, null);
-            };
-        })(f);
-        // Bilder als Data URL auslesen.
-        reader.readAsDataURL(f);
-        document.getElementById("ausgabeStammtisch").innerHTML = "Bitte wählen Sie die Eigenschaften aus <br/>und drücken auf 'Start'";
+            var reader = new FileReader();
+            reader.onload = (function (theFile) {
+                return function (e) {
+                    // erzeuge Thumbnails.
+                    var vorschau = document.getElementById("vorschau_bild_stammtisch");
+                    if(vorschau == null){
+                    vorschau = document.createElement('img');
+                    vorschau.id="vorschau_bild_stammtisch";
+                    vorschau.className = 'vorschau';
+                    }
+                    vorschau.src = e.target.result;
+                    vorschau.title = theFile.name;
+                    document.getElementById('vorschauStammtisch')
+                        .insertBefore(vorschau, null);
+                };
+            })(f);
+            // Bilder als Data URL auslesen.
+            reader.readAsDataURL(f);
+            document.getElementById("ausgabeStammtisch").innerHTML = "Bitte wählen Sie die Eigenschaften aus <br/>und drücken auf 'Start'";
+        }
     }
-    }
+}
+
+function dunkelChange(evt) {
+    document.getElementById('dunkelWert').value = evt.target.value;
 }

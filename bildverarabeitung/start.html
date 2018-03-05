@@ -441,11 +441,40 @@
 					<!-- ############################################################################ -->
 					<div id="stammtischbild" class="tab">
 						<h2>Bild und Einstellungen auswählen und auf Start klicken..</h2>
-						
-						<hr />
-						<input id="bildStammtisch" type="file" name="file" />
-						<hr />
-						<button type="button" id="start" onclick="buttonStartStammtisch()">Start</button>
+						<table>
+							<tr>
+								<td>
+									<label for="dunkel">Überlagern (in %):</label>
+								</td>
+								<td>
+									<input class="slideInput" id="dunkelWert" for="dunkel" value="50"/>
+								</td>
+							</tr>	
+							<tr>
+								<td colspan="2">
+									<input type="range" class="slide" name="dunkel" id="dunkel" value="50" min="0" max="100" step="1">
+								</td>
+							</tr>	
+							<tr>
+								<td colspan="2">
+								<hr />
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<input id="bildStammtisch" type="file" name="file" />
+							</tr>
+							<tr>
+								<td colspan="2">
+									<hr />
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<button type="button" id="start" onclick="buttonStartStammtisch()">Start</button>
+								</td>
+							</tr>
+						</table>
 						<p id="ausgabeStammtisch">Bitte wählen Sie ein Bild aus...</p>			  
 						<div style="float:left;">
 							<output id="vorschauStammtisch" />
