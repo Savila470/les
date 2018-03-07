@@ -441,42 +441,103 @@
 					<!-- ############################################################################ -->
 					<div id="stammtischbild" class="tab">
 						<h2>Bild und Einstellungen auswählen und auf Start klicken..</h2>
-						<table>
+						<table>					
 							<tr>
 								<td>
-									<label for="datum">Datum:</label>
+									<label>Hintergrund:</label>
 								</td>
-								<td>
-									<input id="datum" for="datum"/>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<label for="dunkel">Überlagern (in %):</label>
-								</td>
-								<td>
-									<input class="slideInput" id="dunkelWert" for="dunkel" value="50"/>
-								</td>
-							</tr>	
-							<tr>
-								<td colspan="2">
-									<input type="range" class="slide" name="dunkel" id="dunkel" value="50" min="0" max="100" step="1">
-								</td>
-							</tr>	
-							<tr>
-								<td colspan="2">
-								<hr />
-								</td>
-							</tr>
-							<tr>
 								<td colspan="2">
 									<input id="bildStammtisch" type="file" name="file" />
+								</td>
 							</tr>
+							<tr>
+								<td>
+									<label for="dunkel">Überlagern:</label>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<output class="slideInput" id="dunkelWert" for="dunkel">50%</output>
+								</td>
+								<td colspan="2">
+									<input type="range" class="slide" name="dunkel" id="dunkel" value="50" min="0" max="100" step="1"/>
+								</td>
+							</tr>	
 							<tr>
 								<td colspan="2">
 									<hr />
 								</td>
 							</tr>
+							<tr>
+								<td>
+									<label for="blur">Weichzeichnen:</label>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<output class="slideInput" id="blurWert" for="blur">5</output>
+								</td>
+								<td colspan="2">
+									<input type="range" class="slide" name="blur" id="blur" value="5" min="0" max="20" step="1"/>
+								</td>
+							</tr>	
+							<tr>
+								<td colspan="2">
+									<hr />
+								</td>
+							</tr>		
+							<tr>
+								<td>
+									<label for="datum">Datum:</label>
+								</td>
+								<td colspan="2">
+									<input id="datum" for="datum"/>
+								</td>
+							</tr>		
+							<tr>
+								<td colspan="2">
+									<hr />
+								</td>
+							</tr>						
+							<tr>
+								<td colspan="2">
+									<label>Logo:</label>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<input class="radioLogoArt" id="logoArtText" type="radio" checked="true" name="logoArt"/>
+								</td>
+								<td>
+									<textarea rows="2" cols="35" id="logoText">LES PARTY!</textarea>
+								</td>
+							</tr>	
+							<tr>
+								<td>
+									<input class="radioLogoArt" id="logoArtBild" type="radio" name="logoArt"/>
+								</td>
+								<td>									
+									<input id="logoStammtisch" type="file" name="file" />
+								</td>
+							</tr>	
+							<tr>
+								<td colspan="2">
+									<hr />
+								</td>
+							</tr>				
+							<tr>
+								<td>
+									<label>Grafik:</label>
+								</td>
+								<td colspan="2">
+									<input id="grafikStammtisch" type="file" name="file" />
+								</td>
+							</tr>	
+							<tr>
+								<td colspan="2">
+									<hr />
+								</td>
+							</tr>	
 							<tr>
 								<td colspan="2">
 									<button type="button" id="start" onclick="buttonStartStammtisch()">Start</button>
@@ -486,6 +547,12 @@
 						<p id="ausgabeStammtisch">Bitte wählen Sie ein Bild aus...</p>			  
 						<div style="float:left;">
 							<output id="vorschauStammtisch" />
+						</div>			  
+						<div style="float:left;">
+							<output id="vorschauLogoStammtisch" />
+						</div>			  
+						<div style="float:left;">
+							<output id="vorschauGrafikStammtisch" />
 						</div>
 						<div style="float:left;">	  
 							<canvas id="canvasStammtisch" />

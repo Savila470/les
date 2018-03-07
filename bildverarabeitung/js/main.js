@@ -39,5 +39,9 @@ window.onload=function(){
 	// Auf neue Auswahl reagieren und gegebenenfalls Funktion dateiauswahl neu aus
 	document.getElementById('bild').addEventListener('change', dateiauswahl, false);
 	document.getElementById('bildStammtisch').addEventListener('change', dateiauswahlStammtisch, false);
+	document.getElementById('logoStammtisch').addEventListener('change', auswahlLogoStammtisch, false);
+	document.getElementById('grafikStammtisch').addEventListener('change', auswahlGrafikStammtisch, false);
+
 	document.getElementById('dunkel').addEventListener('input', dunkelChange, false);
+	document.getElementById('blur').addEventListener('input', blurChange, false);
 }

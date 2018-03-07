@@ -2,8 +2,10 @@ function buttonStartStammtisch () {
     var bild_height = 1080;
     var bild_width = 1920;
     var datum = document.getElementById("datum").value;
-    var dunkel = document.getElementById("dunkelWert").value;
+    var dunkel = document.getElementById("dunkel").value;
     dunkel = dunkel * 0.01;
+    var blur = document.getElementById("blur").value;
+    var logoArtBild = document.getElementById('logoArtBild');
 
     var c=document.getElementById("canvasStammtisch");
 	var ctx=c.getContext("2d");
@@ -14,7 +16,9 @@ function buttonStartStammtisch () {
 	var bild = document.getElementById('vorschau_bild_stammtisch');
 	c.height = bild_height;
 	c.width = bild_width;
+    ctx.filter = "blur(" + blur + "px)";
     ctx.drawImage(bild, 0, 0, 1920, 1080);	 
+    ctx.filter = "none";
     ctx.globalAlpha = dunkel;
     ctx.fillRect(0,0,bild_width,bild_height);
     ctx.globalAlpha = 1;
@@ -47,11 +51,43 @@ function buttonStartStammtisch () {
     ctx.fillText("am " + datum, 986, 455);
 	ctx.font = "70px Titillium Web";
     ctx.fillText("www.leipzigesports.de", 998, 1050);
-    
+
+    //####################################################//
+	// Ab hier wird das Logo-BILD gemalt ###########//
+	//####################################################//	
+    var logo = document.getElementById('vorschau_logo_stammtisch');
+    var mitte_height = bild_height/2;
+    var mitte_width = bild_width/2;
+    if(logoArtBild.checked){
+        if(logo != null){
+            mitte_width = mitte_width - logo.width/2;
+            ctx.drawImage(logo, mitte_width, mitte_height, logo.width, logo.height);
+        }
+    } else {
+        var logoText = document.getElementById("logoText").value
+        var textLength = ctx.measureText(logoText).width;
+        mitte_width = mitte_width - textLength  /2;
+        ctx.fillText(logoText, mitte_width, mitte_height);
+    }
+
+    //####################################################//
+	// Ab hier wird das Grafik-BILD gemalt ###########//
+	//####################################################//	
+    var grafik = document.getElementById('vorschau_grafik_stammtisch');
+    if(grafik != null){
+        ctx.drawImage(grafik, 0, 0, grafik.width, grafik.height);
+    }
+
 	//####################################################//
 	// ERFOLG! ###########################################//
 	//####################################################//
     bild.style.display = "none";
+    if(logo != null){
+        logo.style.display = "none";
+    }
+    if(grafik != null){
+        grafik.style.display = "none";
+    }
 	document.getElementById("ausgabeStammtisch").innerHTML = "Erfolg! Jetzt nur noch<br/>Rechtsklick > Bild speichern unter...<br/> klicken.";
 }
 
@@ -87,6 +123,72 @@ function dateiauswahlStammtisch(evt) {
     }
 }
 
+function auswahlLogoStammtisch(evt) {
+    var dateien = evt.target.files; // FileList object
+    // Auslesen der gespeicherten Dateien durch Schleife
+    if(dateien.length > 0){
+        var f = dateien[0];
+        // nur Bild-Dateien
+        if (!f.type.match('image.*')) {
+            document.getElementById("ausgabeStammtisch").innerHTML = "!! Sie haben keine Bild-Datei ausgewählt !!";
+        } else {
+            var reader = new FileReader();
+            reader.onload = (function (theFile) {
+                return function (e) {
+                    // erzeuge Thumbnails.
+                    var vorschau = document.getElementById("vorschau_logo_stammtisch");
+                    if(vorschau == null){
+                    vorschau = document.createElement('img');
+                    vorschau.id="vorschau_logo_stammtisch";
+                    vorschau.className = 'vorschau';
+                    }
+                    vorschau.src = e.target.result;
+                    vorschau.title = theFile.name;
+                    document.getElementById('vorschauLogoStammtisch')
+                        .insertBefore(vorschau, null);
+                };
+            })(f);
+            // Bilder als Data URL auslesen.
+            reader.readAsDataURL(f);
+        }
+    }
+}
+
+function auswahlGrafikStammtisch(evt) {
+    var dateien = evt.target.files; // FileList object
+    // Auslesen der gespeicherten Dateien durch Schleife
+    if(dateien.length > 0){
+        var f = dateien[0];
+        // nur Bild-Dateien
+        if (!f.type.match('image.*')) {
+            document.getElementById("ausgabeStammtisch").innerHTML = "!! Sie haben keine Bild-Datei ausgewählt !!";
+        } else {
+            var reader = new FileReader();
+            reader.onload = (function (theFile) {
+                return function (e) {
+                    // erzeuge Thumbnails.
+                    var vorschau = document.getElementById("vorschau_grafik_stammtisch");
+                    if(vorschau == null){
+                    vorschau = document.createElement('img');
+                    vorschau.id="vorschau_grafik_stammtisch";
+                    vorschau.className = 'vorschau';
+                    }
+                    vorschau.src = e.target.result;
+                    vorschau.title = theFile.name;
+                    document.getElementById('vorschauGrafikStammtisch')
+                        .insertBefore(vorschau, null);
+                };
+            })(f);
+            // Bilder als Data URL auslesen.
+            reader.readAsDataURL(f);
+        }
+    }
+}
+
 function dunkelChange(evt) {
-    document.getElementById('dunkelWert').value = evt.target.value;
+    document.getElementById('dunkelWert').value = evt.target.value + " % ";
+}
+
+function blurChange(evt) {
+    document.getElementById('blurWert').value = evt.target.value;
 }
