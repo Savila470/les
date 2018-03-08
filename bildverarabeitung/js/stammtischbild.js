@@ -56,18 +56,19 @@ function buttonStartStammtisch () {
 	// Ab hier wird das Logo-BILD gemalt ###########//
 	//####################################################//	
     var logo = document.getElementById('vorschau_logo_stammtisch');
-    var mitte_height = bild_height/2;
+    var mitte_height = 450;
     var mitte_width = bild_width/2;
     if(logoArtBild.checked){
         if(logo != null){
-            mitte_width = mitte_width - logo.width/2;
-            ctx.drawImage(logo, mitte_width, mitte_height, logo.width, logo.height);
+            mitte_width = mitte_width - bild_width/3;
+            ctx.drawImage(logo, mitte_width, mitte_height, bild_width/3, bild_height/3);    
         }
     } else {
         var logoText = document.getElementById("logoText").value
+        ctx.font = "italic 200px Kanit black";
         var textLength = ctx.measureText(logoText).width;
-        mitte_width = mitte_width - textLength  /2;
-        ctx.fillText(logoText, mitte_width, mitte_height);
+        mitte_width = mitte_width - textLength  /2;  
+        ctx.fillText(logoText, mitte_width, 700);
     }
 
     //####################################################//
