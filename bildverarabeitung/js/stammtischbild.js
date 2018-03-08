@@ -37,18 +37,18 @@ function buttonStartStammtisch () {
 	//####################################################//
     var les_logo = new Image();
     les_logo.src = "bilder/logo_farbe.svg";
-    ctx.drawImage(les_logo, 850, 180, les_logo.width*0.92, les_logo.height*0.92);
+    ctx.drawImage(les_logo, 900, 180, les_logo.width*0.92, les_logo.height*0.92);
     
     //####################################################//
 	// Ab hier wird der Text geschrieben #################//
 	//####################################################//    
 	ctx.font = "bold 100px Titillium Web";
 	ctx.fillStyle = "white";
-    ctx.fillText("Kommt zum",  300, 297);  
+    ctx.fillText("Kommt zum",  350, 297);  
 	ctx.font = "bold 110px Titillium Web";
-    ctx.fillText("Stammtisch!", 524, 388);    
+    ctx.fillText("Stammtisch!", 574, 388);    
 	ctx.font = "88px Titillium Web";
-    ctx.fillText("am " + datum, 986, 455);
+    ctx.fillText("am " + datum, 1036, 455);
 	ctx.font = "70px Titillium Web";
     ctx.fillText("www.leipzigesports.de", 998, 1050);
 
