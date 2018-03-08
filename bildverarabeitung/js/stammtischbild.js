@@ -22,7 +22,34 @@ function buttonStartStammtisch () {
     ctx.globalAlpha = dunkel;
     ctx.fillRect(0,0,bild_width,bild_height);
     ctx.globalAlpha = 1;
-	
+
+	//####################################################//
+	// Ab hier werden die Balken gemalt ##################//
+    //####################################################//		
+	ctx.globalAlpha = 0.5;
+    ctx.fillStyle = "#b4b8bd";
+    // LINKS OBEN klein
+	ctx.beginPath();
+	ctx.moveTo(170,0);
+	ctx.lineTo(140,0);
+	ctx.lineTo(0,200);
+	ctx.lineTo(0,240);
+    ctx.closePath(); 
+    ctx.fill();
+    ctx.stroke();
+    
+    // LINKS OBEN groß
+	ctx.beginPath();
+	ctx.moveTo(255,0);
+	ctx.lineTo(190,0);
+	ctx.lineTo(0,265);
+	ctx.lineTo(0,355);
+    ctx.closePath(); 
+    ctx.fill();
+    ctx.stroke();
+
+    ctx.globalAlpha = 1;
+    
 	//####################################################//
 	// Ab hier wird das Stuk-LOGO gemalt #################//
 	//####################################################//
