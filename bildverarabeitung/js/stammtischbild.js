@@ -28,7 +28,8 @@ function buttonStartStammtisch () {
     //####################################################//		
 	ctx.globalAlpha = 0.5;
     ctx.fillStyle = "#b4b8bd";
-    // LINKS OBEN klein
+    // LINKS OBEN 
+    //klein
 	ctx.beginPath();
 	ctx.moveTo(170,0);
 	ctx.lineTo(140,0);
@@ -36,14 +37,33 @@ function buttonStartStammtisch () {
 	ctx.lineTo(0,240);
     ctx.closePath(); 
     ctx.fill();
-    ctx.stroke();
-    
-    // LINKS OBEN groß
+    ctx.stroke();    
+    // groß
 	ctx.beginPath();
 	ctx.moveTo(255,0);
 	ctx.lineTo(190,0);
 	ctx.lineTo(0,265);
 	ctx.lineTo(0,355);
+    ctx.closePath(); 
+    ctx.fill();
+    ctx.stroke();
+    
+    // RECHTS UNTEN
+    // klein
+	ctx.beginPath();
+	ctx.moveTo(bild_width-170,bild_height);
+	ctx.lineTo(bild_width-140,bild_height);
+	ctx.lineTo(bild_width,bild_height-200);
+	ctx.lineTo(bild_width,bild_height-240);
+    ctx.closePath(); 
+    ctx.fill();
+    ctx.stroke();
+    // groß
+	ctx.beginPath();
+	ctx.moveTo(bild_width-255,bild_height);
+	ctx.lineTo(bild_width-190,bild_height);
+	ctx.lineTo(bild_width,bild_height-265);
+	ctx.lineTo(bild_width,bild_height-355);
     ctx.closePath(); 
     ctx.fill();
     ctx.stroke();
