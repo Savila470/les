@@ -1,6 +1,10 @@
 function buttonStartStammtisch () {
     var bild_height = 1080;
     var bild_width = 1920;
+    var logo_width_grenze = 1250;
+    var logo_height_grenze = 400;
+    var logo_start_height = 490;
+    var logo_start_width = 350;
     var datum = document.getElementById("datum").value;
     var dunkel = document.getElementById("dunkel").value;
     dunkel = dunkel * 0.01;
@@ -84,18 +88,18 @@ function buttonStartStammtisch () {
 	//####################################################//
     var les_logo = new Image();
     les_logo.src = "bilder/logo_farbe.svg";
-    ctx.drawImage(les_logo, 900, 180, les_logo.width*0.92, les_logo.height*0.92);
+    ctx.drawImage(les_logo, 900, 185, les_logo.width*0.92, les_logo.height*0.92);
     
     //####################################################//
 	// Ab hier wird der Text geschrieben #################//
 	//####################################################//    
 	ctx.font = "bold 100px Titillium Web";
 	ctx.fillStyle = "white";
-    ctx.fillText("Kommt zum",  350, 297);  
+    ctx.fillText("Kommt zum",  350, 302);  
 	ctx.font = "bold 110px Titillium Web";
-    ctx.fillText("Stammtisch!", 574, 388);    
+    ctx.fillText("Stammtisch!", 574, 393);    
 	ctx.font = "88px Titillium Web";
-    ctx.fillText("am " + datum, 1036, 455);
+    ctx.fillText("am " + datum, 1036, 458);
 	ctx.font = "70px Titillium Web";
     ctx.fillText("www.leipzigesports.de", 998, 1050);
 
@@ -103,19 +107,33 @@ function buttonStartStammtisch () {
 	// Ab hier wird das Logo-BILD gemalt ###########//
 	//####################################################//	
     var logo = document.getElementById('vorschau_logo_stammtisch');
-    var mitte_height = 450;
-    var mitte_width = bild_width/2;
     if(logoArtBild.checked){
         if(logo != null){
-            mitte_width = mitte_width - bild_width/3;
-            ctx.drawImage(logo, mitte_width, mitte_height, bild_width/3, bild_height/3);    
+            // 1. Prüfe ob die Höhe des Logos größer als unsere Grenze ist
+            if(logo.height > logo_height_grenze){
+                // dann setzen wir die Höhe auf unser Maximum
+                logo.height = logo_height_grenze;
+                // um den gleichen Faktor muss die Breite verringert werden
+                logo.width = logo.width * (logo_height_grenze/logo.height);
+            }
+            // 2. Prüfe ob die Breite des Logos größer als unsere Grenze ist
+            // -> Höhe wurde schon zuvor betrachtet und gesetzt
+            if(logo.width > logo_width_grenze){
+                // dann setzen wir die Breite auf unser Maximum
+                logo.width = logo_width_grenze;
+                // um den gleichen Faktor muss die Höhe verringert werden
+                logo.height = logo.height * (logo_width_grenze/logo.width);
+            }
+            var logo_width = logo_start_width + (logo_width_grenze-logo.width)/2;
+            var logo_height = logo_start_height + (logo_height_grenze-logo.height)/2;
+            ctx.drawImage(logo, logo_width, logo_height, logo.width, logo.height);    
         }
     } else {
         var logoText = document.getElementById("logoText").value
         ctx.font = "italic 200px Kanit black";
         var textLength = ctx.measureText(logoText).width;
-        mitte_width = mitte_width - textLength  /2;  
-        ctx.fillText(logoText, mitte_width, 700);
+        logo_start_width = logo_start_width - textLength  /2;  
+        ctx.fillText(logoText, logo_start_width, 700);
     }
 
     //####################################################//
