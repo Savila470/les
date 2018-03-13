@@ -28,7 +28,7 @@ function buttonStartBildverarbeitung () {
 		var logo_height = bild.height / verkleinerung;
 		var divisor = logo_height / logo.height;
 		var logo_width = logo.width * divisor;
-		var RAND = logo_height * 0.15;
+		var RAND = logo_height * 0.3;
 		var logo_x = 0;
 		var logo_y = 0;
 
@@ -60,10 +60,10 @@ function buttonStartBildverarbeitung () {
 		//*********************************************//		
 		if(balken){	
 			// Konstanten
-			var winkel = 55;
+			var winkel = 0;
 			var logo_faktor = 0.5;
 			// Werte in Abhängigkeit
-			var streifen_breite = logo_height * 0.1 ;
+			var streifen_breite = logo_height * 0.13 ;
 			var streifen_ausrichtung = streifen_breite * 2;
 			// Start- und Endpunkte
 			var x1 = RAND + logo_height * logo_faktor;
