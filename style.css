@@ -1,6 +1,17 @@
-@font-face { font-family: 'Titillium Web';
-	src: url('fonts/TitilliumWeb-Regular.ttf') format('truetype'); 
+
+@font-face { 
+	font-family: 'Kanit';
+	src: url('fonts/Kanit-BlackItalic.ttf') format('truetype');
 }
+@font-face { 
+	font-family: 'Titillium Web';
+	src: url('fonts/TitilliumWeb-Regular.ttf') format('truetype');
+}
+@font-face { 
+	font-family: 'Titillium Web';
+	src: url('fonts/TitilliumWeb-Bold.ttf') format('truetype');
+	font-weight: bold;
+} 
 body {
     background-color:  #333333;
 	color: white;
@@ -71,4 +82,7 @@ td{
 }
 .radioLogoArt{
     float: right;
+}
+.tmpLabel {
+	font-family: 'Kanit';
 }

@@ -129,11 +129,12 @@ function buttonStartStammtisch () {
             ctx.drawImage(logo, logo_width, logo_height, logo.width, logo.height);    
         }
     } else {
+        //Da wir jetzt Kanit verwenden wollen müssen wir es vorladen
+        //das geht ja scheinbar nur wenn man irgendwas font-family = kanit setzt
         var logoText = document.getElementById("logoText").value
-        ctx.font = "italic 200px Kanit black";
+        ctx.font = "200px Kanit";
         var textLength = ctx.measureText(logoText).width;
-        logo_start_width = logo_start_width - textLength  /2;  
-        ctx.fillText(logoText, logo_start_width, 700);
+        ctx.fillText(logoText, bild_width/2 - textLength /2, 700);
     }
 
     //####################################################//
