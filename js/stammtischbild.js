@@ -112,18 +112,26 @@ function buttonStartStammtisch () {
             // 1. Prüfe ob die Höhe des Logos größer als unsere Grenze ist
             if(logo.height > logo_height_grenze){
                 // dann setzen wir die Höhe auf unser Maximum
+                var logo_width_alt = logo.width;
                 logo.height = logo_height_grenze;
                 // um den gleichen Faktor muss die Breite verringert werden
-                logo.width = logo.width * (logo_height_grenze/logo.height);
+                logo_width_alt = logo_width_alt * (logo_height_grenze/logo.height);
+                if(logo.width != logo_width_alt){
+                    logo.width = logo_width_alt;
+                }
             }
             // 2. Prüfe ob die Breite des Logos größer als unsere Grenze ist
             // -> Höhe wurde schon zuvor betrachtet und gesetzt
             if(logo.width > logo_width_grenze){
                 // dann setzen wir die Breite auf unser Maximum
+                var logo_height_alt = logo.height;
                 logo.width = logo_width_grenze;
                 // um den gleichen Faktor muss die Höhe verringert werden
-                logo.height = logo.height * (logo_width_grenze/logo.width);
-            }
+                logo_height_alt = logo_height_alt * (logo_height_grenze/logo.height);
+                if(logo.height != logo_height_alt){
+                    logo.height = logo_height_alt;
+                }
+             }
             var logo_width = logo_start_width + (logo_width_grenze-logo.width)/2;
             var logo_height = logo_start_height + (logo_height_grenze-logo.height)/2;
             ctx.drawImage(logo, logo_width, logo_height, logo.width, logo.height);    
