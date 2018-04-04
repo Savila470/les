@@ -141,11 +141,12 @@ function dateiauswahl(evt) {
 				return function (e) {
 					// erzeuge Thumbnails.
 					var vorschau = document.getElementById("vorschau_bild");
-					if(vorschau == null){
+					if(vorschau != null){
+                        vorschau.parentNode.removeChild(vorschau);
+                    }
 					vorschau = document.createElement('img');
 					vorschau.id="vorschau_bild";
 					vorschau.className = 'vorschau';
-					}
 					vorschau.src = e.target.result;
 					vorschau.title = theFile.name;
 					document.getElementById('vorschau')

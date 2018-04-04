@@ -113,9 +113,9 @@ function buttonStartStammtisch () {
             if(logo.height > logo_height_grenze){
                 // dann setzen wir die Höhe auf unser Maximum
                 var logo_width_alt = logo.width;
-                logo.height = logo_height_grenze;
                 // um den gleichen Faktor muss die Breite verringert werden
                 logo_width_alt = logo_width_alt * (logo_height_grenze/logo.height);
+                logo.height = logo_height_grenze;
                 if(logo.width != logo_width_alt){
                     logo.width = logo_width_alt;
                 }
@@ -125,9 +125,9 @@ function buttonStartStammtisch () {
             if(logo.width > logo_width_grenze){
                 // dann setzen wir die Breite auf unser Maximum
                 var logo_height_alt = logo.height;
-                logo.width = logo_width_grenze;
                 // um den gleichen Faktor muss die Höhe verringert werden
                 logo_height_alt = logo_height_alt * (logo_height_grenze/logo.height);
+                logo.width = logo_width_grenze;
                 if(logo.height != logo_height_alt){
                     logo.height = logo_height_alt;
                 }
@@ -180,11 +180,12 @@ function dateiauswahlStammtisch(evt) {
                 return function (e) {
                     // erzeuge Thumbnails.
                     var vorschau = document.getElementById("vorschau_bild_stammtisch");
-                    if(vorschau == null){
+                    if(vorschau != null){
+                        vorschau.parentNode.removeChild(vorschau);
+                    }
                     vorschau = document.createElement('img');
                     vorschau.id="vorschau_bild_stammtisch";
                     vorschau.className = 'vorschau';
-                    }
                     vorschau.src = e.target.result;
                     vorschau.title = theFile.name;
                     document.getElementById('vorschauStammtisch')
@@ -212,11 +213,12 @@ function auswahlLogoStammtisch(evt) {
                 return function (e) {
                     // erzeuge Thumbnails.
                     var vorschau = document.getElementById("vorschau_logo_stammtisch");
-                    if(vorschau == null){
+                    if(vorschau != null){
+                        vorschau.parentNode.removeChild(vorschau);
+                    }
                     vorschau = document.createElement('img');
                     vorschau.id="vorschau_logo_stammtisch";
                     vorschau.className = 'vorschau';
-                    }
                     vorschau.src = e.target.result;
                     vorschau.title = theFile.name;
                     document.getElementById('vorschauLogoStammtisch')
@@ -243,11 +245,12 @@ function auswahlGrafikStammtisch(evt) {
                 return function (e) {
                     // erzeuge Thumbnails.
                     var vorschau = document.getElementById("vorschau_grafik_stammtisch");
-                    if(vorschau == null){
+                    if(vorschau != null){
+                        vorschau.parentNode.removeChild(vorschau);
+                    }
                     vorschau = document.createElement('img');
                     vorschau.id="vorschau_grafik_stammtisch";
                     vorschau.className = 'vorschau';
-                    }
                     vorschau.src = e.target.result;
                     vorschau.title = theFile.name;
                     document.getElementById('vorschauGrafikStammtisch')
