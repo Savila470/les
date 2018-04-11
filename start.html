@@ -120,7 +120,7 @@
 						<label>Kalenderwoche:</label>
 						<input id="kw"/>	
 						<label>Jahr:</label>
-						<input id="jahr" value="2018"/>	
+						<input id="jahr"/>	
 						<hr />
 						<table>
 							<tr>
@@ -491,7 +491,7 @@
 									<label for="datum">Datum:</label>
 								</td>
 								<td colspan="2">
-									<input id="datum" type="date" for="datum"/>
+									<input id="datum" type="date" for="datum" required pattern="[0-9]{2}.[0-9]{2}.[0-9]{4}"/>
 								</td>
 							</tr>		
 							<tr>
@@ -527,10 +527,18 @@
 							</tr>				
 							<tr>
 								<td>
-									<label>Grafik:</label>
+									<label>Grafik Rechts:</label>
 								</td>
 								<td colspan="2">
-									<input id="grafikStammtisch" type="file" name="file" />
+									<input id="grafikRechtsStammtisch" type="file" name="file" />
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label>Grafik Links:</label>
+								</td>
+								<td colspan="2">
+									<input id="grafikLinksStammtisch" type="file" name="file" />
 								</td>
 							</tr>	
 							<tr>
@@ -552,7 +560,10 @@
 							<output id="vorschauLogoStammtisch" />
 						</div>			  
 						<div style="float:left;">
-							<output id="vorschauGrafikStammtisch" />
+							<output id="vorschauGrafikRechtsStammtisch" />
+						</div>			  
+						<div style="float:left;">
+							<output id="vorschauGrafikLinksStammtisch" />
 						</div>
 						<div style="float:left;">	  
 							<canvas id="canvasStammtisch" />

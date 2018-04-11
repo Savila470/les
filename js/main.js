@@ -11,6 +11,9 @@ jQuery(document).ready(function() {
 
 		e.preventDefault();
 	});
+   	document.getElementById('datum').valueAsDate = new Date();
+   	document.getElementById('jahr').value = new Date().getFullYear();
+    document.getElementById('kw').value = getWeek(new Date());
 });
 
 var images = [];
@@ -19,6 +22,18 @@ function preload() {
         images[i] = new Image();
         images[i].src = preload.arguments[i];
     }
+}
+
+function getWeek(date) {
+	var tdt = new Date(date.valueOf());
+    var dayn = (date.getDay() + 6) % 7;
+    tdt.setDate(tdt.getDate() - dayn + 3);
+    var firstThursday = tdt.valueOf();
+    tdt.setMonth(0, 1);
+    if (tdt.getDay() !== 4) {
+    	tdt.setMonth(0, 1 + ((4 - tdt.getDay()) + 7) % 7);
+    }
+    return 1 + Math.ceil((firstThursday - tdt) / 604800000);
 }
 
 //-- usage --//
@@ -40,7 +55,8 @@ window.onload=function(){
 	document.getElementById('bild').addEventListener('change', dateiauswahl, false);
 	document.getElementById('bildStammtisch').addEventListener('change', dateiauswahlStammtisch, false);
 	document.getElementById('logoStammtisch').addEventListener('change', auswahlLogoStammtisch, false);
-	document.getElementById('grafikStammtisch').addEventListener('change', auswahlGrafikStammtisch, false);
+	document.getElementById('grafikRechtsStammtisch').addEventListener('change', auswahlGrafikRechtsStammtisch, false);
+	document.getElementById('grafikLinksStammtisch').addEventListener('change', auswahlGrafikLinksStammtisch, false);
 
 	document.getElementById('dunkel').addEventListener('input', dunkelChange, false);
 	document.getElementById('blur').addEventListener('input', blurChange, false);
