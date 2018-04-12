@@ -119,7 +119,7 @@ function buttonStartStammtisch () {
     if(logoArtBild.checked){
         var logo = document.getElementById('vorschau_logo_stammtisch');
         if(logo != null){           
-            logo = scale(logo);
+            logo = scale(logo, logo_width_grenze);
             var logo_width = logo_start_width + (logo_width_grenze-logo.width)/2;
             var logo_height = logo_start_height + (logo_height_grenze-logo.height)/2;
             ctx.drawImage(logo, logo_width, logo_height, logo.width, logo.height); 
@@ -144,22 +144,22 @@ function buttonStartStammtisch () {
     }
 
     //####################################################//
-	// Ab hier wird das GrafikRechts-BILD gemalt ###########//
-	//####################################################//	
+	// Ab hier werden die Grafik-BILDer gemalt ###########//
+    //####################################################//
+    var width_grenze = (bild_width - l_width - 60 - 10) / 2;
+    // RECHTS	
     var grafikRechts = document.getElementById('vorschau_grafik_rechts_stammtisch');
     if(grafikRechts != null){
-        grafikRechts = scale(grafikRechts);
+        grafikRechts = scale(grafikRechts, width_grenze);
         var grafik_start_width = l_start_width + l_width + 30;
         var grafik_start_height = l_start_height;
         ctx.drawImage(grafikRechts, grafik_start_width, grafik_start_height, grafikRechts.width, grafikRechts.height);
     }   
 
-    //####################################################//
-	// Ab hier wird das GrafikLinks-BILD gemalt ###########//
-	//####################################################//	
+    // LINKS	
     var grafikLinks = document.getElementById('vorschau_grafik_links_stammtisch');
     if(grafikLinks != null){        
-        grafikLinks = scale(grafikLinks);
+        grafikLinks = scale(grafikLinks, width_grenze);
         var grafik_start_width = l_start_width - grafikLinks.width - 30;
         var grafik_start_height = l_start_height;
         ctx.drawImage(grafikLinks, grafik_start_width, grafik_start_height, grafikLinks.width, grafikLinks.height);
@@ -183,7 +183,7 @@ function buttonStartStammtisch () {
 	document.getElementById("ausgabeStammtisch").innerHTML = "Erfolg! Jetzt nur noch<br/>Rechtsklick > Bild speichern unter...<br/> klicken.";
 }
 
-function scale(logo){
+function scale(logo, l_width_grenze){
     // 1. Prüfe ob die Höhe des Logos größer als unsere Grenze ist
     if(logo.height > logo_height_grenze){
         // dann setzen wir die Höhe auf unser Maximum
@@ -197,12 +197,12 @@ function scale(logo){
     }
     // 2. Prüfe ob die Breite des Logos größer als unsere Grenze ist
     // -> Höhe wurde schon zuvor betrachtet und gesetzt
-    if(logo.width > logo_width_grenze){
+    if(logo.width > l_width_grenze){
         // dann setzen wir die Breite auf unser Maximum
         var logo_height_alt = logo.height;
         // um den gleichen Faktor muss die Höhe verringert werden
         logo_height_alt = logo_height_alt * (logo_height_grenze/logo.height);
-        logo.width = logo_width_grenze;
+        logo.width = l_width_grenze;
         if(logo.height != logo_height_alt){
             logo.height = logo_height_alt;
         }
