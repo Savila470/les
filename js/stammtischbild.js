@@ -11,7 +11,6 @@ function buttonStartStammtisch () {
     var dunkel = document.getElementById("dunkel").value;
     dunkel = dunkel * 0.01;
     var blur = document.getElementById("blur").value;
-    var logoArtBild = document.getElementById('logoArtBild');
 
     var c=document.getElementById("canvasStammtisch");
 	var ctx=c.getContext("2d");
@@ -19,15 +18,19 @@ function buttonStartStammtisch () {
 	//####################################################//
 	// Ab hier wird das Hintergrund-BILD gemalt ###########//
 	//####################################################//	
-	var bild = document.getElementById('vorschau_bild_stammtisch');
+    var bild = document.getElementById('vorschau_bild_stammtisch');
 	c.height = bild_height;
 	c.width = bild_width;
-    ctx.filter = "blur(" + blur + "px)";
-    ctx.drawImage(bild, 0, 0, bild_width, bild_height);	 
-    ctx.filter = "none";
-    ctx.globalAlpha = dunkel;
-    ctx.fillRect(0,0,bild_width,bild_height);
-    ctx.globalAlpha = 1;
+    if(bild != null){
+        ctx.filter = "blur(" + blur + "px)";
+        ctx.drawImage(bild, 0, 0, bild_width, bild_height);	 
+        ctx.filter = "none";
+        ctx.globalAlpha = dunkel;
+        ctx.fillRect(0,0,bild_width,bild_height);
+        ctx.globalAlpha = 1;
+    } else {    
+        ctx.fillRect(0,0,bild_width,bild_height);
+    }
 
 	//####################################################//
 	// Ab hier werden die Balken gemalt ##################//
@@ -112,6 +115,7 @@ function buttonStartStammtisch () {
     var l_start_width;
     var l_height;
     var l_start_height;
+    var logoArtBild = document.getElementById('logoArtBild');
     if(logoArtBild.checked){
         var logo = document.getElementById('vorschau_logo_stammtisch');
         if(logo != null){           
@@ -131,12 +135,12 @@ function buttonStartStammtisch () {
         var logoText = document.getElementById("logoText").value
         ctx.font = "200px Kanit";
         var textLength = ctx.measureText(logoText).width;
-        ctx.fillText(logoText, bild_width/2 - textLength /2, 700);
+        ctx.fillText(logoText, bild_width/2 - textLength /2, 740);
 
         l_width = ctx.measureText(logoText).width;
         l_start_width = bild_width/2 - textLength /2;
         l_height = 200;
-        l_start_height = 700 - l_height;  
+        l_start_height = 740 - l_height;  
     }
 
     //####################################################//
@@ -154,14 +158,19 @@ function buttonStartStammtisch () {
 	// Ab hier wird das GrafikLinks-BILD gemalt ###########//
 	//####################################################//	
     var grafikLinks = document.getElementById('vorschau_grafik_links_stammtisch');
-    if(grafikLinks != null){
-        ctx.drawImage(grafikLinks, 0, 0, grafikLinks.width, grafikLinks.height);
+    if(grafikLinks != null){        
+        grafikLinks = scale(grafikLinks);
+        var grafik_start_width = l_start_width - grafikLinks.width - 30;
+        var grafik_start_height = l_start_height;
+        ctx.drawImage(grafikLinks, grafik_start_width, grafik_start_height, grafikLinks.width, grafikLinks.height);
     }
 
 	//####################################################//
 	// ERFOLG! ###########################################//
-	//####################################################//
-    bild.style.display = "none";
+    //####################################################//
+    if(bild != null){
+        bild.style.display = "none";
+    }
     if(logo != null){
         logo.style.display = "none";
     }
