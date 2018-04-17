@@ -119,14 +119,14 @@ function buttonStartStammtisch () {
     if(logoArtBild.checked){
         var logo = document.getElementById('vorschau_logo_stammtisch');
         if(logo != null){           
-            logo = scale(logo, logo_width_grenze);
-            var logo_width = logo_start_width + (logo_width_grenze-logo.width)/2;
-            var logo_height = logo_start_height + (logo_height_grenze-logo.height)/2;
-            ctx.drawImage(logo, logo_width, logo_height, logo.width, logo.height); 
+            var logoScale = scale(logo, logo_width_grenze);
+            var logo_width = logo_start_width + (logo_width_grenze-logoScale.width)/2;
+            var logo_height = logo_start_height + (logo_height_grenze-logoScale.height)/2;
+            ctx.drawImage(logo, logo_width, logo_height, logoScale.width, logoScale.height); 
 
-            l_width = logo.width;
+            l_width = logoScale.width;
             l_start_width = logo_width;
-            l_height = logo.height;
+            l_height = logoScale.height;
             l_start_height = logo_height;   
         }
     } else {
@@ -150,19 +150,19 @@ function buttonStartStammtisch () {
     // RECHTS	
     var grafikRechts = document.getElementById('vorschau_grafik_rechts_stammtisch');
     if(grafikRechts != null){
-        grafikRechts = scale(grafikRechts, width_grenze);
+        var grafik = scale(grafikRechts, width_grenze);
         var grafik_start_width = l_start_width + l_width + 30;
         var grafik_start_height = l_start_height;
-        ctx.drawImage(grafikRechts, grafik_start_width, grafik_start_height, grafikRechts.width, grafikRechts.height);
+        ctx.drawImage(grafikRechts, grafik_start_width, grafik_start_height, grafik.width, grafik.height);
     }   
 
     // LINKS	
     var grafikLinks = document.getElementById('vorschau_grafik_links_stammtisch');
     if(grafikLinks != null){        
-        grafikLinks = scale(grafikLinks, width_grenze);
-        var grafik_start_width = l_start_width - grafikLinks.width - 30;
+        var grafik = scale(grafikLinks, width_grenze);
+        var grafik_start_width = l_start_width - grafik.width - 30;
         var grafik_start_height = l_start_height;
-        ctx.drawImage(grafikLinks, grafik_start_width, grafik_start_height, grafikLinks.width, grafikLinks.height);
+        ctx.drawImage(grafikLinks, grafik_start_width, grafik_start_height, grafik.width, grafik.height);
     }
 
 	//####################################################//
@@ -184,30 +184,32 @@ function buttonStartStammtisch () {
 }
 
 function scale(logo, l_width_grenze){
+    var logoHeight = logo.height;
+    var logoWidth = logo.width;
     // 1. Prüfe ob die Höhe des Logos größer als unsere Grenze ist
-    if(logo.height > logo_height_grenze){
+    if(logoHeight > logo_height_grenze){
         // dann setzen wir die Höhe auf unser Maximum
-        var logo_width_alt = logo.width;
+        var logo_width_alt = logoWidth;
         // um den gleichen Faktor muss die Breite verringert werden
-        logo_width_alt = logo_width_alt * (logo_height_grenze/logo.height);
-        logo.height = logo_height_grenze;
-        if(logo.width != logo_width_alt){
-            logo.width = logo_width_alt;
+        logo_width_alt = logo_width_alt * (logo_height_grenze/logoHeight);
+        logoHeight = logo_height_grenze;
+        if(logoWidth != logo_width_alt){
+            logoWidth = logo_width_alt;
         }
     }
     // 2. Prüfe ob die Breite des Logos größer als unsere Grenze ist
     // -> Höhe wurde schon zuvor betrachtet und gesetzt
-    if(logo.width > l_width_grenze){
+    if(logoWidth > l_width_grenze){
         // dann setzen wir die Breite auf unser Maximum
-        var logo_height_alt = logo.height;
+        var logo_height_alt = logoHeight;
         // um den gleichen Faktor muss die Höhe verringert werden
-        logo_height_alt = logo_height_alt * (logo_height_grenze/logo.height);
-        logo.width = l_width_grenze;
-        if(logo.height != logo_height_alt){
-            logo.height = logo_height_alt;
+        logo_height_alt = logo_height_alt * (l_width_grenze/logoWidth);
+        logoWidth = l_width_grenze;
+        if(logoHeight != logo_height_alt){
+            logoHeight = logo_height_alt;
         }
     }
-    return logo;
+    return {width: logoWidth, height: logoHeight};
 }
 
 function dateiauswahlStammtisch(evt) {
