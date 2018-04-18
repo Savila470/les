@@ -132,15 +132,17 @@ function buttonStartStammtisch () {
     } else {
         //Da wir jetzt Kanit verwenden wollen müssen wir es vorladen
         //das geht ja scheinbar nur wenn man irgendwas font-family = kanit setzt
+        var schriftGroesse = 200;
         var logoText = document.getElementById("logoText").value
-        ctx.font = "200px Kanit";
+        ctx.font = schriftGroesse + "px Kanit";
         var textLength = ctx.measureText(logoText).width;
-        ctx.fillText(logoText, bild_width/2 - textLength /2, 740);
+        var start_height = logo_start_height + schriftGroesse + ((logo_height_grenze - schriftGroesse) / 2);
+        ctx.fillText(logoText, bild_width/2 - textLength /2, start_height);
 
         l_width = ctx.measureText(logoText).width;
         l_start_width = bild_width/2 - textLength /2;
-        l_height = 200;
-        l_start_height = 740 - l_height;  
+        l_height = start_height;
+        l_start_height = logo_start_height - l_height;  
     }
 
     //####################################################//
