@@ -152,7 +152,7 @@ function buttonStartStammtisch () {
     if(grafikRechts != null){
         var grafik = scale(grafikRechts, width_grenze);
         var grafik_start_width = l_start_width + l_width + 30;
-        var grafik_start_height = l_start_height;
+        var grafik_start_height = l_start_height + ((logo_height_grenze - grafik.height) / 2);
         ctx.drawImage(grafikRechts, grafik_start_width, grafik_start_height, grafik.width, grafik.height);
     }   
 
@@ -161,7 +161,7 @@ function buttonStartStammtisch () {
     if(grafikLinks != null){        
         var grafik = scale(grafikLinks, width_grenze);
         var grafik_start_width = l_start_width - grafik.width - 30;
-        var grafik_start_height = l_start_height;
+        var grafik_start_height = l_start_height + ((logo_height_grenze - grafik.height) / 2);
         ctx.drawImage(grafikLinks, grafik_start_width, grafik_start_height, grafik.width, grafik.height);
     }
 
