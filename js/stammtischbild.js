@@ -134,13 +134,13 @@ function buttonStartStammtisch () {
         //das geht ja scheinbar nur wenn man irgendwas font-family = kanit setzt
         var schriftGroesse = 200;
         ctx.font = schriftGroesse + "px Kanit";
-        var start_height = logo_start_height + schriftGroesse + ((logo_height_grenze - schriftGroesse) / 2);       
         var logoText = document.getElementById("logoText").value;
         var logoTextAr = logoText.split("\n");
         var forEnde = 2;
         if(logoTextAr.length < 2){
             forEnde = logoTextAr.length;
         }
+        var start_height = logo_start_height + schriftGroesse + ((logo_height_grenze - (schriftGroesse * forEnde)) / 2);       
         for(var i = 0; i < forEnde; i++){
         	logoText = logoTextAr[i];
             var textLength = ctx.measureText(logoText).width;            
