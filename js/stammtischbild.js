@@ -141,6 +141,7 @@ function buttonStartStammtisch () {
             forEnde = logoTextAr.length;
         }
         var start_height = logo_start_height + schriftGroesse + ((logo_height_grenze - (schriftGroesse * forEnde)) / 2);       
+        var max_textLength = 0;
         for(var i = 0; i < forEnde; i++){
         	logoText = logoTextAr[i];
             var textLength = ctx.measureText(logoText).width;            
@@ -148,12 +149,15 @@ function buttonStartStammtisch () {
                 start_height += schriftGroesse;
             }
             ctx.fillText(logoText, bild_width/2 - textLength /2, start_height);
+            if(textLength > max_textLength){
+                max_textLength = textLength;
+            }
         }
 
-        l_width = ctx.measureText(logoText).width;
-        l_start_width = bild_width/2 - textLength /2;
-        l_height = start_height;
-        l_start_height = logo_start_height - l_height;  
+        l_width = max_textLength;
+        l_start_width = bild_width/2 - max_textLength /2;
+        l_height = schriftGroesse * forEnde;
+        l_start_height = logo_start_height; 
     }
 
     //####################################################//
