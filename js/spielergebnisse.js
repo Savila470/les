@@ -46,9 +46,9 @@ function buttonStartErgebnisse () {
 	//***********************//
 	ctx.font = "43px Titillium Web";
 	ctx.fillStyle = "white";
-	kw = "KW" + kw;
+	kw = "KW " + kw;
 	var kw_breite = ctx.measureText(kw).width;
-	ctx.fillText(kw, hintergrund.width - 138 - kw_breite, 49);
+	ctx.fillText(kw, hintergrund.width - 150 - kw_breite, 49);
 	ctx.fillText(jahr, hintergrund.width - 117, 49);
 
 	var logo_height = 80;

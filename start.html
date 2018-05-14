@@ -3,6 +3,7 @@
     <title>Bildverarbeitung für Leipzig eSports</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="js/jquery-3.3.1.min.js"></script>
+		<script src="js/daten.js"></script>
 		<script src="js/main.js"></script>
 		<script src="js/bildverarbeitung.js"></script>
 		<script src="js/spielergebnisse.js"></script>
@@ -132,308 +133,68 @@
 								<th>Team Gegner</th>
 							</tr>
 							<tr>
-								<td>								
-									<select id="spiel1">
-										<option value="sc2">StarCraft II</option>
-										<option value="lol">League of Legends</option>
-										<option value="csgo">CS: GO</option>
-										<option value="hots">Heroes of the storm</option>
-										<option value="ow">Overwatch</option>
-										<option value="r6">Rainbow Six Siege</option>
-										<option value="pubg">PUBG</option>
-									</select>
-								</td>
-								<td>								
-									<select id="team1">
-										<option value="Ohana">Ohana</option>
-										<option value="TTT">TTT</option>
-										<option value="KS">KS</option>
-										<option value="Alte Herren">Alte Herren</option>
-										<option value="Bierbert">Bierbert</option>
-										<option value="Navy">Navy</option>
-										<option value="BBJ">BBJ</option>
-										<option value="Carbine">Carbine</option>
-										<option value="Kampfpandas">Kampfpandas</option>
-									</select>
-								</td>
-								<td>
-									<input id="ergebnisLES1" class="ergebnisLES"/>
-								</td>
-								<td>
-								:
-								</td>
-								<td>
-									<input id="ergebnisGegner1"/>
-								</td>
-								<td>
-									<input id="teamGegner1"/>
-								</td>
+								<td><select id="spiel1"/></td>
+								<td><select id="team1"/></td>
+								<td><input id="ergebnisLES1" class="ergebnisLES"/></td>
+								<td>:</td>
+								<td><input id="ergebnisGegner1"/></td>
+								<td><input id="teamGegner1"/></td>
 							</tr>
 							<tr>
-								<td>								
-									<select id="spiel2">
-										<option value="sc2">StarCraft II</option>
-										<option value="lol">League of Legends</option>
-										<option value="csgo">CS: GO</option>
-										<option value="hots">Heroes of the storm</option>
-										<option value="ow">Overwatch</option>
-										<option value="r6">Rainbow Six Siege</option>
-										<option value="pubg">PUBG</option>
-									</select>
-								</td>
-								<td>								
-									<select id="team2">
-										<option value="Ohana">Ohana</option>
-										<option value="TTT">TTT</option>
-										<option value="KS">KS</option>
-										<option value="Alte Herren">Alte Herren</option>
-										<option value="Bierbert">Bierbert</option>
-										<option value="Navy">Navy</option>
-										<option value="BBJ">BBJ</option>
-										<option value="Carbine">Carbine</option>
-										<option value="Kampfpandas">Kampfpandas</option>
-									</select>
-								</td>
-								<td>
-									<input id="ergebnisLES2" class="ergebnisLES"/>
-								</td>
-								<td>
-								:
-								</td>
-								<td>
-									<input id="ergebnisGegner2"/>
-								</td>
-								<td>
-									<input id="teamGegner2"/>
-								</td>
+								<td><select id="spiel2"/></td>
+								<td><select id="team2" /></td>
+								<td><input id="ergebnisLES2" class="ergebnisLES"/></td>
+								<td>:</td>
+								<td><input id="ergebnisGegner2"/></td>
+								<td><input id="teamGegner2"/></td>
 							</tr>
 							<tr>
-								<td>								
-									<select id="spiel3">
-										<option value="sc2">StarCraft II</option>
-										<option value="lol">League of Legends</option>
-										<option value="csgo">CS: GO</option>
-										<option value="hots">Heroes of the storm</option>
-										<option value="ow">Overwatch</option>
-										<option value="r6">Rainbow Six Siege</option>
-										<option value="pubg">PUBG</option>
-									</select>
-								</td>
-								<td>								
-									<select id="team3">
-										<option value="Ohana">Ohana</option>
-										<option value="TTT">TTT</option>
-										<option value="KS">KS</option>
-										<option value="Alte Herren">Alte Herren</option>
-										<option value="Bierbert">Bierbert</option>
-										<option value="Navy">Navy</option>
-										<option value="BBJ">BBJ</option>
-										<option value="Carbine">Carbine</option>
-										<option value="Kampfpandas">Kampfpandas</option>
-									</select>
-								</td>
-								<td>
-									<input id="ergebnisLES3" class="ergebnisLES"/>
-								</td>
-								<td>
-								:
-								</td>
-								<td>
-									<input id="ergebnisGegner3"/>
-								</td>
-								<td>
-									<input id="teamGegner3"/>
-								</td>
+								<td><select id="spiel3"/></td>
+								<td><select id="team3"/></td>
+								<td><input id="ergebnisLES3" class="ergebnisLES"/></td>
+								<td>:</td>
+								<td><input id="ergebnisGegner3"/></td>
+								<td><input id="teamGegner3"/></td>
 							</tr>
 							<tr>
-								<td>								
-									<select id="spiel4">
-										<option value="sc2">StarCraft II</option>
-										<option value="lol">League of Legends</option>
-										<option value="csgo">CS: GO</option>
-										<option value="hots">Heroes of the storm</option>
-										<option value="ow">Overwatch</option>
-										<option value="r6">Rainbow Six Siege</option>
-										<option value="pubg">PUBG</option>
-									</select>
-								</td>
-								<td>								
-									<select id="team4">
-										<option value="Ohana">Ohana</option>
-										<option value="TTT">TTT</option>
-										<option value="KS">KS</option>
-										<option value="Alte Herren">Alte Herren</option>
-										<option value="Bierbert">Bierbert</option>
-										<option value="Navy">Navy</option>
-										<option value="BBJ">BBJ</option>
-										<option value="Carbine">Carbine</option>
-										<option value="Kampfpandas">Kampfpandas</option>
-									</select>
-								</td>
-								<td>
-									<input id="ergebnisLES4" class="ergebnisLES"/>
-								</td>
-								<td>
-								:
-								</td>
-								<td>
-									<input id="ergebnisGegner4"/>
-								</td>
-								<td>
-									<input id="teamGegner4"/>
-								</td>
+								<td><select id="spiel4"/></td>
+								<td><select id="team4"/></td>
+								<td><input id="ergebnisLES4" class="ergebnisLES"/></td>
+								<td>:</td>
+								<td><input id="ergebnisGegner4"/></td>
+								<td><input id="teamGegner4"/></td>
 							</tr>
 							<tr>
-								<td>								
-									<select id="spiel5">
-										<option value="sc2">StarCraft II</option>
-										<option value="lol">League of Legends</option>
-										<option value="csgo">CS: GO</option>
-										<option value="hots">Heroes of the storm</option>
-										<option value="ow">Overwatch</option>
-										<option value="r6">Rainbow Six Siege</option>
-										<option value="pubg">PUBG</option>
-									</select>
-								</td>
-								<td>								
-									<select id="team5">
-										<option value="Ohana">Ohana</option>
-										<option value="TTT">TTT</option>
-										<option value="KS">KS</option>
-										<option value="Alte Herren">Alte Herren</option>
-										<option value="Bierbert">Bierbert</option>
-										<option value="Navy">Navy</option>
-										<option value="BBJ">BBJ</option>
-										<option value="Carbine">Carbine</option>
-										<option value="Kampfpandas">Kampfpandas</option>
-									</select>
-								</td>
-								<td>
-									<input id="ergebnisLES5" class="ergebnisLES"/>
-								</td>
-								<td>
-								:
-								</td>
-								<td>
-									<input id="ergebnisGegner5"/>
-								</td>
-								<td>
-									<input id="teamGegner5"/>
-								</td>
+								<td><select id="spiel5"/></td>
+								<td><select id="team5"/></td>
+								<td><input id="ergebnisLES5" class="ergebnisLES"/></td>
+								<td>:</td>
+								<td><input id="ergebnisGegner5"/></td>
+								<td><input id="teamGegner5"/></td>
 							</tr>
 							<tr>
-								<td>								
-									<select id="spiel6">
-										<option value="sc2">StarCraft II</option>
-										<option value="lol">League of Legends</option>
-										<option value="csgo">CS: GO</option>
-										<option value="hots">Heroes of the storm</option>
-										<option value="ow">Overwatch</option>
-										<option value="r6">Rainbow Six Siege</option>
-										<option value="pubg">PUBG</option>
-									</select>
-								</td>
-								<td>								
-									<select id="team6">
-										<option value="Ohana">Ohana</option>
-										<option value="TTT">TTT</option>
-										<option value="KS">KS</option>
-										<option value="Alte Herren">Alte Herren</option>
-										<option value="Bierbert">Bierbert</option>
-										<option value="Navy">Navy</option>
-										<option value="BBJ">BBJ</option>
-										<option value="Carbine">Carbine</option>
-										<option value="Kampfpandas">Kampfpandas</option>
-									</select>
-								</td>
-								<td>
-									<input id="ergebnisLES6" class="ergebnisLES"/>
-								</td>
-								<td>
-								:
-								</td>
-								<td>
-									<input id="ergebnisGegner6"/>
-								</td>
-								<td>
-									<input id="teamGegner6"/>
-								</td>
+								<td><select id="spiel6"/></td>
+								<td><select id="team6"/></td>
+								<td><input id="ergebnisLES6" class="ergebnisLES"/></td>
+								<td>:</td>
+								<td><input id="ergebnisGegner6"/></td>
+								<td><input id="teamGegner6"/></td>
 							</tr>
 							<tr>
-								<td>								
-									<select id="spiel7">
-										<option value="sc2">StarCraft II</option>
-										<option value="lol">League of Legends</option>
-										<option value="csgo">CS: GO</option>
-										<option value="hots">Heroes of the storm</option>
-										<option value="ow">Overwatch</option>
-										<option value="r6">Rainbow Six Siege</option>
-										<option value="pubg">PUBG</option>
-									</select>
-								</td>
-								<td>								
-									<select id="team7">
-										<option value="Ohana">Ohana</option>
-										<option value="TTT">TTT</option>
-										<option value="KS">KS</option>
-										<option value="Alte Herren">Alte Herren</option>
-										<option value="Bierbert">Bierbert</option>
-										<option value="Navy">Navy</option>
-										<option value="BBJ">BBJ</option>
-										<option value="Carbine">Carbine</option>
-										<option value="Kampfpandas">Kampfpandas</option>
-									</select>
-								</td>
-								<td>
-									<input id="ergebnisLES7" class="ergebnisLES"/>
-								</td>
-								<td>
-								:
-								</td>
-								<td>
-									<input id="ergebnisGegner7"/>
-								</td>
-								<td>
-									<input id="teamGegner7"/>
-								</td>
+								<td><select id="spiel7"/></td>
+								<td><select id="team7"/></td>
+								<td><input id="ergebnisLES7" class="ergebnisLES"/></td>
+								<td>:</td>
+								<td><input id="ergebnisGegner7"/></td>
+								<td><input id="teamGegner7"/></td>
 							</tr>
 							<tr>
-								<td>								
-									<select id="spiel8">
-										<option value="sc2">StarCraft II</option>
-										<option value="lol">League of Legends</option>
-										<option value="csgo">CS: GO</option>
-										<option value="hots">Heroes of the storm</option>
-										<option value="ow">Overwatch</option>
-										<option value="r6">Rainbow Six Siege</option>
-										<option value="pubg">PUBG</option>
-									</select>
-								</td>
-								<td>								
-									<select id="team8">
-										<option value="Ohana">Ohana</option>
-										<option value="TTT">TTT</option>
-										<option value="KS">KS</option>
-										<option value="Alte Herren">Alte Herren</option>
-										<option value="Bierbert">Bierbert</option>
-										<option value="Navy">Navy</option>
-										<option value="BBJ">BBJ</option>
-										<option value="Carbine">Carbine</option>
-										<option value="Kampfpandas">Kampfpandas</option>
-									</select>
-								</td>
-								<td>
-									<input id="ergebnisLES8" class="ergebnisLES"/>
-								</td>
-								<td>
-								:
-								</td>
-								<td>
-									<input id="ergebnisGegner8"/>
-								</td>
-								<td>
-									<input id="teamGegner8"/>
-								</td>
+								<td><select id="spiel8"/></td>
+								<td><select id="team8"/></td>
+								<td><input id="ergebnisLES8" class="ergebnisLES"/></td>
+								<td>:</td>
+								<td><input id="ergebnisGegner8"/></td>
+								<td><input id="teamGegner8"/></td>
 							</tr>
 						</table>
 						<hr />

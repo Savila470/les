@@ -11,16 +11,28 @@ jQuery(document).ready(function() {
 
 		e.preventDefault();
 	});
+
+	for(var eintragNr = 1; eintragNr <= 8; eintragNr++){
+		var team = document.getElementById("team" + eintragNr);
+		for(var i = 0; i < teams.length; i++){
+			team.options[team.options.length] = new Option(teams[i], teams[i]);
+		}
+		var game = document.getElementById("spiel" + eintragNr);
+		for(var i = 0; i < games.length; i++){
+			game.options[game.options.length] = new Option(games[i].label, games[i].picName);
+		}
+	};
+
    	document.getElementById('datum').valueAsDate = new Date();
    	document.getElementById('jahr').value = new Date().getFullYear();
     document.getElementById('kw').value = getWeek(new Date());
 });
 
 var images = [];
-function preload() {
-    for (var i = 0; i < arguments.length; i++) {
+function preload(toPreload) {
+    for (var i = 0; i < toPreload.length; i++) {
         images[i] = new Image();
-        images[i].src = preload.arguments[i];
+        images[i].src = toPreload[i];
     }
 }
 
@@ -37,18 +49,7 @@ function getWeek(date) {
 }
 
 //-- usage --//
-preload(
-	"bilder/hintergrund.png", 
-	"bilder/sc2_logo.png", 
-	"bilder/lol_logo.png", 
-	"bilder/r6_logo.png", 
-	"bilder/hots_logo.png", 
-	"bilder/csgo_logo.png", 
-	"bilder/pubg_logo.png", 
-	"bilder/ow_logo.png",
-	"bilder/stuk_logo.png",
-	"bilder/logo_farbe.svg"
-)
+preload(preloadBilder)
 	
 window.onload=function(){
 	// Auf neue Auswahl reagieren und gegebenenfalls Funktion dateiauswahl neu aus
