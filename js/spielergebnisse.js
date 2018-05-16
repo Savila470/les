@@ -63,6 +63,24 @@ function buttonStartErgebnisse () {
 	abstand = abstand / (anzErgebnis + 2);
 	y_start = y_start + abstand;
 	abstand = abstand + grErgebnis;
+
+	// größte Ergebnislänge berechnen
+	var maxErgebnisLength = 0;
+	ctx.font = grErgebnis + "px Titillium Web";
+	for(var spiel of ergebnisMap.values()){
+		for (var i = 0; i<spiel.length;i++){
+			var ergebnisTmp = spiel[i];
+			var tmp = ctx.measureText(ergebnisTmp.ergebnisLES).width;
+			if(tmp > maxErgebnisLength){
+				maxErgebnisLength = tmp;
+			}
+			tmp = ctx.measureText(ergebnisTmp.ergebnisGegner).width;
+			if(tmp > maxErgebnisLength){
+				maxErgebnisLength = tmp;
+			}
+		}
+	}
+
 	for (var spiel of ergebnisMap.values()) {
 		//***********************//
 		// BALKEN               //
@@ -101,8 +119,8 @@ function buttonStartErgebnisse () {
 
 			ctx.font = "58px Titillium Web";
 			textLength = ctx.measureText("LESeV " + ergebnis.team).width;
-			ctx.fillText("LESeV " + ergebnis.team, x-textLength-150, y_start+79);
-			ctx.fillText(ergebnis.teamGegner, x+150, y_start+79);	
+			ctx.fillText("LESeV " + ergebnis.team, x-textLength-maxErgebnisLength-25, y_start+79);
+			ctx.fillText(ergebnis.teamGegner, x+maxErgebnisLength+45, y_start+79);	
 			y_start = y_start + abstand;
 		}
 	}  
