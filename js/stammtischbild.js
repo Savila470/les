@@ -114,7 +114,6 @@ function buttonStartStammtisch () {
     var l_width;
     var l_start_width;
     var l_height;
-    var l_start_height;
     var logoArtBild = document.getElementById('logoArtBild');
     if(logoArtBild.checked){
         var logo = document.getElementById('vorschau_logo_stammtisch');
@@ -126,8 +125,7 @@ function buttonStartStammtisch () {
 
             l_width = logoScale.width;
             l_start_width = logo_width;
-            l_height = logoScale.height;
-            l_start_height = logo_height;   
+            l_height = logoScale.height;  
         }
     } else {
         //Da wir jetzt Kanit verwenden wollen müssen wir es vorladen
@@ -157,7 +155,6 @@ function buttonStartStammtisch () {
         l_width = max_textLength;
         l_start_width = bild_width/2 - max_textLength /2;
         l_height = schriftGroesse * forEnde;
-        l_start_height = logo_start_height; 
     }
 
     //####################################################//
@@ -169,7 +166,7 @@ function buttonStartStammtisch () {
     if(grafikRechts != null){
         var grafik = scale(grafikRechts, width_grenze);
         var grafik_start_width = l_start_width + l_width + 30;
-        var grafik_start_height = l_start_height + ((logo_height_grenze - grafik.height) / 2);
+        var grafik_start_height = logo_start_height + ((logo_height_grenze - grafik.height) / 2);
         ctx.drawImage(grafikRechts, grafik_start_width, grafik_start_height, grafik.width, grafik.height);
     }   
 
@@ -178,7 +175,7 @@ function buttonStartStammtisch () {
     if(grafikLinks != null){        
         var grafik = scale(grafikLinks, width_grenze);
         var grafik_start_width = l_start_width - grafik.width - 30;
-        var grafik_start_height = l_start_height + ((logo_height_grenze - grafik.height) / 2);
+        var grafik_start_height = logo_start_height + ((logo_height_grenze - grafik.height) / 2);
         ctx.drawImage(grafikLinks, grafik_start_width, grafik_start_height, grafik.width, grafik.height);
     }
 
