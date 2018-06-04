@@ -86,3 +86,9 @@ td{
 .tmpLabel {
 	font-family: 'Kanit';
 }
+.space {
+	width: 55%;
+}
+.fullwidth{
+	width: 100%;
+}

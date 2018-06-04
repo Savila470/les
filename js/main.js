@@ -25,7 +25,13 @@ jQuery(document).ready(function() {
 
    	document.getElementById('datum').valueAsDate = new Date();
    	document.getElementById('jahr').value = new Date().getFullYear();
-    document.getElementById('kw').value = getWeek(new Date());
+	document.getElementById('kw').value = getWeek(new Date());
+
+	document.getElementById('kalender_start_datum').valueAsDate = new Date();
+	document.getElementById('kalender_ende_datum').valueAsDate = new Date();
+	document.getElementById('kalender_start_zeit').value = "10:00";
+	document.getElementById('kalender_ende_zeit').value = "11:00";
+	
 });
 
 var images = [];
