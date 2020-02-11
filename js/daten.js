@@ -1,13 +1,9 @@
 var teams = [
                 "Ohana", 
-                "TTT", 
-                "KS", 
-                "Alte Herren", 
-                "Bierbert", 
-                "Navy", 
-                "BBJ", 
-                "Carbine", 
-                "Kampfpandas"
+                "Team 1", 
+                "PvP", 
+                "B-Ware", 
+                "PU"
             ];
 
 var games = [
