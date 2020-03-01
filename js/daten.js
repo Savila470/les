@@ -3,7 +3,13 @@ var teams = [
                 "Team 1", 
                 "PvP", 
                 "B-Ware", 
-                "PU"
+                "PU",
+                "MilLord",
+                "Össy",
+                "iceclaw",
+                "Amralon",
+                "Einherjar",
+                "Savila"
             ];
 
 var games = [
