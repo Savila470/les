@@ -4,6 +4,7 @@ var teams = [
                 "PvP", 
                 "B-Ware", 
                 "PU",
+                "Challenjours",
                 "MilLord",
                 "Össy",
                 "iceclaw",
