@@ -1,3 +1,9 @@
+var PARTNER_LOGO_X_OFFSET = 42;
+var PARTNER_LOGO_Y = 92;
+var PARTNER_LOGO_TEXT = "sponsored by"
+var PARTNER_LOGO_TEXT_X = 1481;
+var PARTNER_LOGO_TEXT_Y = 83;
+
 function buttonStartErgebnisse () {	
 	//***********************//
 	// ERGEBNIS VAR   //
@@ -34,13 +40,29 @@ function buttonStartErgebnisse () {
 	var hintergrund = new Image();
 	hintergrund.src = "bilder/hintergrund.png";	
 	hintergrund.onload;
+
 	//***********************//
 	// HINTERGRUND     //
 	//***********************//
 	c.height = hintergrund.height;
 	c.width = hintergrund.width;
 	ctx.drawImage(hintergrund, 0, 0, hintergrund.width, hintergrund.height);
-			
+
+	//***********************//
+	// PARTNER_LOGO     //
+	//***********************//
+	var partnerLogoCheckbox = document.getElementById("partnerlogo");
+	if(partnerLogoCheckbox.checked === true){
+		ctx.font = "30px Titillium Web";
+		ctx.fillStyle = "white";
+		ctx.fillText(PARTNER_LOGO_TEXT, PARTNER_LOGO_TEXT_X, PARTNER_LOGO_TEXT_Y);
+		var partnerLogo = new Image();
+		partnerLogo.src = "bilder/powercloud_logo.png";
+		partnerLogo.onload;
+		var partnerLogo
+		ctx.drawImage(partnerLogo, (hintergrund.width - partnerLogo.width - PARTNER_LOGO_X_OFFSET), PARTNER_LOGO_Y, partnerLogo.width, partnerLogo.height);
+	}
+
 	//***********************//
 	// KALENDERWOCHE //
 	//***********************//
@@ -104,6 +126,7 @@ function buttonStartErgebnisse () {
 		var logo_width = (logo_height / logo.height) * logo.width;
 		var logo_start = x1_balken/2 - logo_width/2;
 		ctx.drawImage(logo, logo_start, y_start, logo_width, logo_height);
+
 		//***********************//
 		// TEXT                    //
 		//***********************//

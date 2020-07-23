@@ -33,7 +33,8 @@ var preloadBilder = [
                 "bilder/pubg_logo.png", 
                 "bilder/ow_logo.png",
                 "bilder/stuk_logo.png",
-                "bilder/logo_farbe.svg"
+                "bilder/logo_farbe.svg",
+                "bilder/powercloud_logo.png"
             ]
 
 function Game(label, picName) {
