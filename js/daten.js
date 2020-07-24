@@ -4,6 +4,7 @@ var teams = [
                 "PvP", 
                 "B-Ware", 
                 "PU",
+                "E",
                 "Challenjours",
                 "MilLord",
                 "Össy",
@@ -21,6 +22,7 @@ var games = [
                 new Game("Overwatch", "sc2"), 
                 new Game("Rainbow Six Siege", "r6"), 
                 new Game("PUBG", "pubg"), 
+                new Game("Valorant", "valorant"), 
             ]
 
 var preloadBilder = [    
@@ -31,7 +33,8 @@ var preloadBilder = [
                 "bilder/hots_logo.png", 
                 "bilder/csgo_logo.png", 
                 "bilder/pubg_logo.png", 
-                "bilder/ow_logo.png",
+                "bilder/ow_logo.png", 
+                "bilder/valorant_logo.png",
                 "bilder/stuk_logo.png",
                 "bilder/logo_farbe.svg",
                 "bilder/powercloud_logo.png"
